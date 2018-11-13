@@ -2,6 +2,7 @@ package dmutils.com.dmutils.validation;
 
 import android.text.InputType;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.widget.EditText;
 
 public class DMValidation {
@@ -75,5 +76,9 @@ public class DMValidation {
         }
 
         return isHaveError;
+    }
+
+    public static boolean isValidUrl(String potentialUrl) {
+        return Patterns.WEB_URL.matcher(potentialUrl).matches();
     }
 }

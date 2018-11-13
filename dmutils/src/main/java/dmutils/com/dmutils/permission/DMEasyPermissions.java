@@ -1,9 +1,5 @@
 package dmutils.com.dmutils.permission;
 
-/**
- * Created by david on 9/23/16.
- */
-
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
@@ -25,6 +21,41 @@ import java.util.List;
 
 /**
  * Utility to request and check System permissions for apps targeting Android M (API >= 23).
+ *
+ * Usage of code:
+ *
+ *    public class MainFragment implements EasyPermissions.PermissionCallbacks {}
+ *
+ *
+ *    @AfterPermissionGranted(PermissionRequestCode.LOCATION)
+ *     private void accessToLocation() {
+ *         if (EasyPermissions.hasPermissions(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)) {
+ *             getPins();
+ *         } else {
+ *             EasyPermissions.requestPermissions(this, null,
+ *                     PermissionRequestCode.LOCATION, false, Manifest.permission.ACCESS_FINE_LOCATION);
+ *         }
+ *     }
+ *
+ *     @Override
+ *     public void onRequestPermissionsResult(final int requestCode, final @NonNull String[] permissions,
+ *                                            final @NonNull int[] grantResults) {
+ *         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+ **
+ *         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+ *     }
+ *
+ *     @Override
+ *     public void onPermissionsGranted(final int requestCode, final List<String> perms) {
+ *         if (!ArCaUtils.isLocationEnabled(getActivity())) {
+ *             goToGPSSetting();
+ *         }
+ *     }
+ *
+ *     @Override
+ *     public void onPermissionsDenied(final int requestCode, final List<String> perms) {
+ *
+ *     }
  */
 public class DMEasyPermissions {
 

@@ -8,6 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 
+/**
+ * increasing and decreasing height of view with animation and returns listener that animation completed
+ * Usage example of code
+ * private DMShowHideAnimation mShowHideAnimationNotificationDate;
+ * mShowHideAnimationNotificationDate = new ShowHideAnimation().initValuesForAnimation(mLLNotificationDate, 500, 333);
+ * mShowHideAnimationNotificationDate.show();
+ * mShowHideAnimationNotificationDate.hide();
+ */
+
 
 public class DMShowHideAnimation {
 

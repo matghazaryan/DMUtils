@@ -1,5 +1,14 @@
 package dmutils.com.dmutils.view;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +40,7 @@ public class DMViewGroupUtils {
         parent.addView(newView, index);
     }
 
-    public static void setMargins(final View v, final int l, final int t, final int r, final int b) {
+    public static void setViewMargins(final View v, final int l, final int t, final int r, final int b) {
         if (v.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             final ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
             p.setMargins(l, t, r, b);
@@ -39,7 +48,7 @@ public class DMViewGroupUtils {
         }
     }
 
-    public static void disableView(final EditText editText, final String text) {
+    public static void disableEditText(final EditText editText, final String text) {
         final boolean isEmpty = TextUtils.isEmpty(text);
         editText.setFocusable(isEmpty);
         editText.setFocusableInTouchMode(isEmpty);
@@ -47,7 +56,7 @@ public class DMViewGroupUtils {
         editText.setLongClickable(false);
     }
 
-    public static void disableView(final EditText editText) {
+    public static void disableEditText(final EditText editText) {
         editText.setFocusable(false);
         editText.setFocusableInTouchMode(false);
         editText.setCursorVisible(false);
@@ -55,16 +64,23 @@ public class DMViewGroupUtils {
         editText.setLongClickable(false);
     }
 
-    public static void enableView(final EditText editText) {
+    public static void enableEditText(final EditText editText) {
         editText.setFocusable(true);
         editText.setFocusableInTouchMode(true);
         editText.setCursorVisible(true);
         editText.setLongClickable(true);
     }
 
-    public static void disableFocusable(final EditText editText) {
+    public static void disableFocusableOfEdittext(final EditText editText) {
         editText.setFocusable(false);
         editText.setFocusableInTouchMode(false);
         editText.setCursorVisible(false);
+    }
+
+    public static void setRoundedBackground(final View view, final int fillColor, final int strokeColor, final int corner) {
+        final RoundRectShape rs = new RoundRectShape(new float[]{corner, corner, corner, corner, corner, corner, corner, corner}, null, null);
+        final ShapeDrawable sd = new DMCustomShapeDrawable(rs, fillColor, strokeColor, 0);
+        sd.setPadding(corner, corner, corner, corner);
+        view.setBackgroundDrawable(sd);
     }
 }

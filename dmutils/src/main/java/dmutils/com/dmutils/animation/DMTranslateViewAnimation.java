@@ -7,6 +7,13 @@ import android.app.Activity;
 import android.util.DisplayMetrics;
 import android.view.View;
 
+/**
+ * Show view with animation from bottom to top
+ * Usage of code
+ * DMTranslateViewAnimation.upView(mActivity, mView, 3000, () -> {})
+ *
+ */
+
 public class DMTranslateViewAnimation {
 
     public static void upView(final Activity activity, final View view, final int duration, final IAnimationEndListener listener) {

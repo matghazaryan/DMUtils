@@ -10,8 +10,6 @@ public class DMConnectivity {
 
     /**
      * add <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> on manifest
-     * @param context
-     * @return
      */
 
     @SuppressLint("MissingPermission")
