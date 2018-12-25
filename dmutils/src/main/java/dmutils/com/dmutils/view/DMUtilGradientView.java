@@ -13,36 +13,36 @@ import android.view.View;
 import java.util.List;
 
 /**
- *  <dmutils.com.dmutils.view.GradientView
- *         android:id="@+id/forgot_password_gradient_view"
- *         android:layout_width="match_parent"
- *         android:layout_height="match_parent" />
- *
- *         private GradientView mGradientView;
- *
- *         final List<String> colorList = new ArrayList<>();
- *         colorList.add(Gradient.START_COLOR);
- *         colorList.add(Gradient.END_COLOR);
- *
- *         final List<Float> positionList = new ArrayList<>();
- *         positionList.add(0.0f);
- *         positionList.add(1.0f);
- *
- *         mGradientView.setGradientBackground(colorList, positionList);
+ * <dmutils.com.dmutils.view.GradientView
+ * android:id="@+id/forgot_password_gradient_view"
+ * android:layout_width="match_parent"
+ * android:layout_height="match_parent" />
+ * <p>
+ * private GradientView mGradientView;
+ * <p>
+ * final List<String> colorList = new ArrayList<>();
+ * colorList.add(Gradient.START_COLOR);
+ * colorList.add(Gradient.END_COLOR);
+ * <p>
+ * final List<Float> positionList = new ArrayList<>();
+ * positionList.add(0.0f);
+ * positionList.add(1.0f);
+ * <p>
+ * mGradientView.setGradientBackground(colorList, positionList);
  */
 
-public class DMGradientView extends View {
+public final class DMUtilGradientView extends View {
 
     private Context context;
     private int[] colors = new int[]{};
     private float[] positions = new float[]{};
 
-    public DMGradientView(final Context context) {
+    public DMUtilGradientView(final Context context) {
         super(context);
         this.context = context;
     }
 
-    public DMGradientView(final Context context, final AttributeSet attrs) {
+    public DMUtilGradientView(final Context context, final AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
     }

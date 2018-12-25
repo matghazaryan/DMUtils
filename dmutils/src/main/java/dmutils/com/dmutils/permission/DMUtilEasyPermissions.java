@@ -21,43 +21,35 @@ import java.util.List;
 
 /**
  * Utility to request and check System permissions for apps targeting Android M (API >= 23).
- *
+ * <p>
  * Usage of code:
+ * <p>
+ * public class MainFragment implements EasyPermissions.PermissionCallbacks {}
  *
- *    public class MainFragment implements EasyPermissions.PermissionCallbacks {}
- *
- *
- *    @AfterPermissionGranted(PermissionRequestCode.LOCATION)
- *     private void accessToLocation() {
- *         if (EasyPermissions.hasPermissions(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)) {
- *             getPins();
- *         } else {
- *             EasyPermissions.requestPermissions(this, null,
- *                     PermissionRequestCode.LOCATION, false, Manifest.permission.ACCESS_FINE_LOCATION);
- *         }
- *     }
- *
- *     @Override
- *     public void onRequestPermissionsResult(final int requestCode, final @NonNull String[] permissions,
- *                                            final @NonNull int[] grantResults) {
- *         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
- **
- *         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
- *     }
- *
- *     @Override
- *     public void onPermissionsGranted(final int requestCode, final List<String> perms) {
- *         if (!ArCaUtils.isLocationEnabled(getActivity())) {
- *             goToGPSSetting();
- *         }
- *     }
- *
- *     @Override
- *     public void onPermissionsDenied(final int requestCode, final List<String> perms) {
- *
- *     }
+ * @AfterPermissionGranted(PermissionRequestCode.LOCATION) private void accessToLocation() {
+ * if (EasyPermissions.hasPermissions(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)) {
+ * getPins();
+ * } else {
+ * EasyPermissions.requestPermissions(this, null,
+ * PermissionRequestCode.LOCATION, false, Manifest.permission.ACCESS_FINE_LOCATION);
+ * }
+ * }
+ * @Override public void onRequestPermissionsResult(final int requestCode, final @NonNull String[] permissions,
+ * final @NonNull int[] grantResults) {
+ * super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+ * *
+ * EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
+ * }
+ * @Override public void onPermissionsGranted(final int requestCode, final List<String> perms) {
+ * if (!ArCaUtils.isLocationEnabled(getActivity())) {
+ * goToGPSSetting();
+ * }
+ * }
+ * @Override public void onPermissionsDenied(final int requestCode, final List<String> perms) {
+ * <p>
+ * }
  */
-public class DMEasyPermissions {
+public final class DMUtilEasyPermissions {
 
     private static final String TAG = "EasyPermissions";
 
@@ -213,12 +205,12 @@ public class DMEasyPermissions {
      * <p/>
      * If any permissions were granted or denied, the {@code object} will receive the appropriate
      * callbacks through {@link PermissionCallbacks} and methods annotated with
-     * {@link DMAfterPermissionGranted} will be run if appropriate.
+     * {@link DMUtilAfterPermissionGranted} will be run if appropriate.
      *
      * @param requestCode  requestCode argument to permission result callback.
      * @param permissions  permissions argument to permission result callback.
      * @param grantResults grantResults argument to permission result callback.
-     * @param receivers    an array of objects that have a method annotated with {@link DMAfterPermissionGranted}
+     * @param receivers    an array of objects that have a method annotated with {@link DMUtilAfterPermissionGranted}
      *                     or implement {@link PermissionCallbacks}.
      */
     public static void onRequestPermissionsResult(int requestCode, String[] permissions,
@@ -305,9 +297,9 @@ public class DMEasyPermissions {
             clazz = clazz.getSuperclass();
         }
         for (Method method : clazz.getDeclaredMethods()) {
-            if (method.isAnnotationPresent(DMAfterPermissionGranted.class)) {
+            if (method.isAnnotationPresent(DMUtilAfterPermissionGranted.class)) {
                 // Check for annotated methods with matching request code.
-                DMAfterPermissionGranted ann = method.getAnnotation(DMAfterPermissionGranted.class);
+                DMUtilAfterPermissionGranted ann = method.getAnnotation(DMUtilAfterPermissionGranted.class);
                 if (ann.value() == requestCode) {
                     // Method must be void so that we can invoke it
                     if (method.getParameterTypes().length > 0) {

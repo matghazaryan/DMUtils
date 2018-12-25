@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-public class DMKeyboard {
+public final class DMUtilKeyboard {
 
     public static void openKeyboard(final Activity activity, final EditText editText) {
         final InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);

@@ -3,7 +3,7 @@ package dmutils.com.dmutils.general;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class DMFormatter {
+public final class DMUtilFormatter {
 
     public static boolean isNumeric(final String s) {
         boolean isNum = true;
@@ -20,8 +20,8 @@ public class DMFormatter {
         return number.replaceAll("[^0-9-.]", "");
     }
 
-    public static String getOnlyNumbersByStr(String str){
-        return str.replaceAll("\\D+","");
+    public static String getOnlyNumbersByStr(String str) {
+        return str.replaceAll("\\D+", "");
     }
 
     public static String md5(final String s) {

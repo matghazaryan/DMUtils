@@ -1,12 +1,5 @@
 package dmutils.com.dmutils.view;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
-import android.graphics.RectF;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
 import android.text.TextUtils;
@@ -14,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-public class DMViewGroupUtils {
+public final class DMUtilViewGroupUtils {
 
     public static ViewGroup getParent(final View view) {
         return (ViewGroup) view.getParent();
@@ -79,7 +72,7 @@ public class DMViewGroupUtils {
 
     public static void setRoundedBackground(final View view, final int fillColor, final int strokeColor, final int corner) {
         final RoundRectShape rs = new RoundRectShape(new float[]{corner, corner, corner, corner, corner, corner, corner, corner}, null, null);
-        final ShapeDrawable sd = new DMCustomShapeDrawable(rs, fillColor, strokeColor, 0);
+        final ShapeDrawable sd = new DMUtilCustomShapeDrawable(rs, fillColor, strokeColor, 0);
         sd.setPadding(corner, corner, corner, corner);
         view.setBackgroundDrawable(sd);
     }

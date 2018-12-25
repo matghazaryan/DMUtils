@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.util.Patterns;
 import android.widget.EditText;
 
-public class DMValidation {
+public final class DMUtilValidation {
 
     public static boolean isEmptyFields(final String emptyText, final EditText... editTexts) {
         boolean isHaveError = false;

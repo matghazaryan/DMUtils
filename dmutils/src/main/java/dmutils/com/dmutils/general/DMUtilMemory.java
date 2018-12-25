@@ -1,6 +1,6 @@
 package dmutils.com.dmutils.general;
 
-public class DMMemory {
+public final class DMUtilMemory {
 
     public static void freeMemory() {
         System.runFinalization();

@@ -6,7 +6,7 @@ import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-public class DMConnectivity {
+public final class DMUtilConnectivity {
 
     /**
      * add <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> on manifest

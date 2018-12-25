@@ -8,11 +8,11 @@ import android.graphics.RectF;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.Shape;
 
-public class DMCustomShapeDrawable extends ShapeDrawable {
+public final class DMUtilCustomShapeDrawable extends ShapeDrawable {
     private final Paint fillpaint, strokepaint;
     private final int strokeWidth;
 
-    public DMCustomShapeDrawable(Shape s, int fill, int stroke, int strokeWidth) {
+    public DMUtilCustomShapeDrawable(Shape s, int fill, int stroke, int strokeWidth) {
         super(s);
         this.strokeWidth = strokeWidth;
         fillpaint = new Paint(this.getPaint());

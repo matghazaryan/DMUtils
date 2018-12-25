@@ -1,6 +1,6 @@
 package dmutils.com.dmutils.animation;
 
-public interface IAnimationEndListener {
+public interface DMUtilIAnimationEndListener {
 
     void onAnimationEnd();
 }

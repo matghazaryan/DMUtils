@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface DMAfterPermissionGranted {
+public @interface DMUtilAfterPermissionGranted {
 
     int value();
 

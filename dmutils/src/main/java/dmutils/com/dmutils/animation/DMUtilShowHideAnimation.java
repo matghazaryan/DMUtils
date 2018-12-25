@@ -18,7 +18,7 @@ import android.view.ViewTreeObserver;
  */
 
 
-public class DMShowHideAnimation {
+public final class DMUtilShowHideAnimation {
 
     private int mViewHeight;
     private ViewTreeObserver.OnGlobalLayoutListener mOnGlobalLayoutListener;
@@ -27,7 +27,7 @@ public class DMShowHideAnimation {
     private int mHideDuration;
     private int mViewVisibleStatus;
 
-    public DMShowHideAnimation initValuesForAnimation(final View view, final int showDuration, final int hideDuration) {
+    public DMUtilShowHideAnimation initValuesForAnimation(final View view, final int showDuration, final int hideDuration) {
         this.mShowDuration = showDuration;
         this.mHideDuration = hideDuration;
         this.mView = view;
@@ -88,7 +88,7 @@ public class DMShowHideAnimation {
         }
     }
 
-    public static void hide(final View view, final int duration, final IAnimationEndListener listener) {
+    public static void hide(final View view, final int duration, final DMUtilIAnimationEndListener listener) {
         if (view.getVisibility() == View.VISIBLE) {
             final int height = view.getMeasuredHeight();
             final ValueAnimator animatorContentHide = ObjectAnimator.ofInt(height, 0);

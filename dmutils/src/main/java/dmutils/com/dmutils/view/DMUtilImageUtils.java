@@ -12,7 +12,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 
-public class DMImageUtils {
+public final class DMUtilImageUtils {
 
     public static Drawable getStringResourceByName(Context context, String name) {
         Resources resources = context.getResources();

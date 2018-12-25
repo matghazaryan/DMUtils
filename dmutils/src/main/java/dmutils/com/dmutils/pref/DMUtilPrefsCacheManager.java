@@ -10,20 +10,20 @@ import java.util.Set;
 
 /**
  * To start using DMPrefsCacheManager you should initialize library on Application class
- *  DMPrefsCacheManager.getInstance().initialize(getApplicationContext());
+ * DMPrefsCacheManager.getInstance().initialize(getApplicationContext());
  */
 
-public class DMPrefsCacheManager {
+public final class DMUtilPrefsCacheManager {
 
-    private static DMPrefsCacheManager instance;
+    private static DMUtilPrefsCacheManager instance;
     private SharedPreferences mSharedPreferences;
 
-    private DMPrefsCacheManager() {
+    private DMUtilPrefsCacheManager() {
     }
 
-    public static DMPrefsCacheManager getInstance() {
+    public static DMUtilPrefsCacheManager getInstance() {
         if (instance == null) {
-            instance = new DMPrefsCacheManager();
+            instance = new DMUtilPrefsCacheManager();
         }
 
         return instance;

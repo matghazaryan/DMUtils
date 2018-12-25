@@ -6,10 +6,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.provider.Settings;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
-public class DMAppInfo {
+public final class DMUtilAppInfo {
 
     public static String getApplicationName(final Context context) {
         final ApplicationInfo applicationInfo = context.getApplicationInfo();

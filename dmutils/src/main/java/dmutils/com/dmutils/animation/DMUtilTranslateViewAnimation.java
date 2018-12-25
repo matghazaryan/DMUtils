@@ -11,12 +11,11 @@ import android.view.View;
  * Show view with animation from bottom to top
  * Usage of code
  * DMTranslateViewAnimation.upView(mActivity, mView, 3000, () -> {})
- *
  */
 
-public class DMTranslateViewAnimation {
+public final class DMUtilTranslateViewAnimation {
 
-    public static void upView(final Activity activity, final View view, final int duration, final IAnimationEndListener listener) {
+    public static void upView(final Activity activity, final View view, final int duration, final DMUtilIAnimationEndListener listener) {
         if (view.getVisibility() == View.GONE) {
             view.setVisibility(View.VISIBLE);
             final DisplayMetrics dm = new DisplayMetrics();

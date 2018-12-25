@@ -11,7 +11,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class DMDateManager {
+public final class DMUtilDateManager {
 
     public static String convertDaterFormatTo(final String pDate, final String pFrom, final String pTo, Locale pLocale) {
         String sDate = "";

@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 
-public class DMCommonUtils {
+public final class DMUtilCommonUtils {
 
     public static boolean checkFileExtension(final String filePath, final String[] extensions) {
 
